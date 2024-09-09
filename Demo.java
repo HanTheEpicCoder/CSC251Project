@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Demo {
     public static void main(String[] args) {
         ArrayList<Policy> policies = new ArrayList<>();
+        int smokers = 0;
+        int nonSmokers = 0;
 
         try {
             File file = new File("PolicyInformation.txt");
@@ -35,5 +37,31 @@ public class Demo {
             System.out.println("Error: " + e.getMessage());
             return;
         }
+
+        for (int i = 0; i < policies.size(); i++) {
+            Policy policy = policies.get(i);
+            String smokingStatus = policy.getSmokingStatus();
+
+            System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
+            System.out.println("Provider Name: " + policy.getProviderName());
+            System.out.println("Policyholder's First Name: " + policy.getFirstName());
+            System.out.println("Policyholder's Last Name: " + policy.getLastName());
+            System.out.println("Policyholder's Age: " + policy.getAge());
+            System.out.println("Policyholder's Smoking Status: " + smokingStatus);
+            System.out.println("Policyholder's Height: " + policy.getHeight() + " inches");
+            System.out.println("Policyholder's Weight: " + policy.getWeight() + " pounds");
+            System.out.println("Policyholder's BMI: " + String.format("%.2f", policy.calculateBMI()));
+            System.out.println("Policy Price: $" + String.format("%.2f", policy.calculatePolicyPrice()));
+
+            if (smokingStatus.equalsIgnoreCase("smoker")) {
+                smokers++;
+            } else {
+                nonSmokers++;
+            }
+        }
+
+        
+        System.out.println("\nNumber of Policyholders who are smokers: " + smokers);
+        System.out.println("Number of Policyholders who are non-smokers: " + nonSmokers);
     }
 }
