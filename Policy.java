@@ -3,6 +3,8 @@ public class Policy {
     private String providerName;
     private PolicyHolder policyHolder;
 
+    private static int policyCount = 0;
+
     /**
      * Default constructor for Policy class
      */
@@ -10,6 +12,7 @@ public class Policy {
         this.policyNumber = 0;
         this.providerName = "N/A";
         this.policyHolder = new PolicyHolder();
+        policyCount++;
     }
 
     /**
@@ -22,6 +25,7 @@ public class Policy {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyHolder = policyHolder;
+        policyCount++;
     }
 
     /**
@@ -99,6 +103,14 @@ public class Policy {
         }
 
         return policyPrice;
+    }
+
+    /**
+     * Returns the total number of Policy objects created
+     * @return The count of Policy objects
+     */
+    public static int getPolicyCount() {
+        return policyCount;
     }
 
     /**
