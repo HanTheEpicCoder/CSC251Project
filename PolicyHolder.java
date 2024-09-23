@@ -140,4 +140,18 @@ public class PolicyHolder {
     public double calculateBMI() {
         return (weight * 703) / (height * height);
     }
+
+    /**
+     * Returns a string of the policyholder's information
+     * @return The policyholder's information
+     */
+    @Override
+    public String toString() {
+        return "Policyholder's First Name: " + firstName + 
+               "\nPolicyholder's Last Name: " + lastName + 
+               "\nPolicyholder's Age: " + age + 
+               "\nPolicyholder's Smoking Status: " + smokingStatus + 
+               "\nPolicyholder's Height: " + height + " inches" + 
+               "\nPolicyholder's Weight: " + weight + " pounds";
+    }
 }
